@@ -3,21 +3,27 @@ const gameList = ["rock", "paper", "scissors"];
 function randomEnter(){
 
     const indexList = Math.floor(Math.random() * 3);
-    document.querySelector(".random_word").innerHTML = gameList[indexList];
+    document.querySelector(".random_word").textContent = gameList[indexList];
 
 return gameList[indexList];
 
 }
 
-function enter(){
-    let userWord = prompt('Enter your word').toLowerCase();
-    document.querySelector(".user_word").innerHTML = userWord;
-    while (gameList.indexOf(userWord) == -1){
-        console.log('Enter: rock or paper or scissors');
-        userWord = prompt('Enter your word').toLowerCase();
-    }
-return userWord;
+function enter(event){
+    let userWord = event.target.textContent.toLowerCase();
+    document.querySelector(".user_word").textContent = userWord;
+
+    let randomWord = randomEnter();
+    console.log(userWord);
+    console.log(randomWord);
+    
+    let result = game(randomWord, userWord);
+    document.querySelector(".result").textContent = result;
+    console.log(result);
+
 }
+
+
 
 function game (randomWord, userWord) {
 
@@ -44,23 +50,24 @@ function game (randomWord, userWord) {
         return 'You Lose!';
     }   
 }
+const buttons = document.querySelectorAll(".button")
+console.log(buttons);
+buttons.forEach((button) => {
+    button.addEventListener('click', enter)
+}
+)
 
 
-let userWord = enter();
-let randomWord = randomEnter();
-let result = game(randomWord, userWord);
-document.querySelector(".result").innerHTML = result;
-console.log(result);
-check = prompt("Once more?").toLowerCase();
+``` check = prompt("Once more, yes?").toLowerCase();
 
 while (['yes', 'yeh', "1"].indexOf(check) !== -1){
 
     userWord = enter();
     randomWord = randomEnter();
     result = game(randomWord, userWord);
-    document.querySelector(".result").innerHTML = result;
+    document.querySelector(".result").textContent = result;
     console.log(result);
-    check = prompt("Once more?").toLowerCase();
-}
+   check = prompt("Once more, yes?").toLowerCase();
+} ```
 
 console.log("GoodBye!");
