@@ -10,10 +10,11 @@
 </head>
 <body>
     <div class="wrapper">
-    <header>
-        <h1>Rock-Paper-Scissors</h1>
+    <header class="title">
+        <h1 class="title_header">Rock - Paper - Scissors</h1>
     </header>
-    <main class="wrapper_main">
+    <main>
+    <div class="wrapper_buttons">
         <div class="button_wr">
             <button class="button">Rock</button>
         </div>
@@ -23,17 +24,33 @@
         <div class="button_wr">
             <button class="button">Scissors</button>
         </div>
-    </main>
+    </div>
 
-    <p><span>Random word is </span>
-        <span class="random_word"></span>
-    </p>
-    <p><span>User word is </span>
-        <span class="user_word"></span>
-    </p>
-    <p><span>Result is </span>
-        <span class="result"></span>
-    </p>
+    <div class="wrapper_choices">
+        <div class="wrapper_choice">
+            <h2 class="choice_title">your choice</h2>
+            <div class="choice" id="your">?</div>
+        </div>
+        <div class="wrapper_choice">
+            <h2 class="choice_title">random choice</h2>
+            <div class="choice" id="random">?</div>
+        </div>
+    </div>
+
+    <div class="wrapper_scores">
+        <div class="wrapper_score">
+        <div class="title_score">your points:</div>
+         <div class="score" id="points">start</div>   
+        </div>
+        <div class="wrapper_score">
+        <div class="title_score">round:</div>
+        <div class="score" id="round">start</div>   
+        </div>
+    </div>
+
+    <div class="victory"></div>
+    
+    </main>
     </div>
   <script src="/js/script.js"></script>  
 </body>
